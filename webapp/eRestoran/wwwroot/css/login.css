@@ -1,0 +1,51 @@
+﻿
+.textLogin {
+    background-color: #EA6500;
+    color: white;
+    font-family: "Verdana";
+    font-size: 12px;
+    padding: 10px 25px;
+    letter-spacing: 5px;
+    color: white;
+    border: 0;
+    opacity: 0.9;
+    border-radius: 20px;
+    width:230px;
+}
+
+.login-form-input + div {
+    width: 15%;
+    height: 1px;
+    margin-bottom: 1em;
+    transition: width 0.5s ease;
+    background: #202020;
+    opacity: 0.9;
+    margin-top:1.5px;
+}
+
+.login-form-input:focus + div {
+    width: 100%;
+}
+
+.login-form-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.login-form-input {
+    border: none;
+    outline: none;
+    text-indent: 1em;
+    height: 1.5em;
+    width: 100%;
+    font-family: "Verdana";
+    opacity: 0.9;
+}
+#password-error {
+    color: #EA6500;
+}
+#email-error {
+    color: #EA6500;
+}
+.form-group {
+    padding-top:1em;
+}

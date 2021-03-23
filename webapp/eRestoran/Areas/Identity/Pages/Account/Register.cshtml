@@ -1,0 +1,86 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+@*<h1>@ViewData["Title"]</h1>*@
+<link href="~/css/login.css" rel="stylesheet" />
+<div class="row" style="margin:auto; margin-top:4em;">
+    <div style="background-color: #fff; opacity:0.9; margin:auto; width:500px;">
+        <h5 style="color:white; padding-top:30px; text-align:center; background-color:#1f1e1d; opacity:0.9; height:80px;"><b>Registrirajte se</b></h5>
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post" style="padding:0 3em 1.5em 3em;">
+            @*<div asp-validation-summary="All" class="text-danger"></div>*@
+            <div class="form-group">
+                <input asp-for="Input.UserName" class="login-form-input" placeholder="Korisnicko ime" /><div></div>
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Input.Ime" class="login-form-input" placeholder="Ime" /><div></div>
+                <span asp-validation-for="Input.Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Input.Prezime" class="login-form-input" placeholder="Prezime" /><div></div>
+                <span asp-validation-for="Input.Prezime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="Input.Adresa" class="login-form-input" placeholder="Adresa" /><div></div>
+                <span asp-validation-for="Input.Adresa" class="text-danger"></span>
+            </div>
+            <br />
+            <br />
+            <div class="form-group">
+                <input asp-for="Input.Email" class="login-form-input" placeholder="Email" /><div></div>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Input.PhoneNumber" class="login-form-input" placeholder="Broj telefona" /><div></div>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Input.Password" class="login-form-input" placeholder="Lozinka" /><div></div>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Input.ConfirmPassword" class="login-form-input" placeholder="Potvrdite lozinku" /><div></div>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="textLogin" style="margin:30px 0 0 22%;">REGISTRIRAJ SE</button>
+        </form>
+    </div>
+    @*<div class="col-md-6 col-md-offset-2">
+        <section>
+            <h4>Use another service to register.</h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                            for details on setting up this ASP.NET application to support logging in via external services.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>*@
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

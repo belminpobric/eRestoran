@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Pocetna";
+}
+<link rel="stylesheet" href="~/css/index.css" />
+<div id="IndexContainer">
+
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        @*<ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+            </ul>*@
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/images/slide11.jpg" style="width:1399px; height:600px;" Los Angeles">
+                <div class="carousel-caption">
+                    <h3 class="text-capitalize">Rezervisi Stol Online!</h3>
+                    <p>Ukoliko zelite uzivati u nasem ambijentu kreirajte nalog i rezervisite vas omiljeni stol.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/slide2222.jpg" style="width:1399px; height:600px;" alt="Chicago">
+                <div class="carousel-caption">
+
+                    <h3 class="text-capitalize">Naruci Hranu Online!</h3>
+                    <p>Pregledaj meni i naruci svoje omiljeno jelo.</p>
+                </div>
+
+            </div>
+
+            Left and right controls
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+        </div>
+        <div id="MostPopular" style="background-color: #f4f4f4;">
+            <h3>NAJPOPULARNIJE OVOG TJEDNA...</h3>
+            <div class="container1">
+                <p>HAMBURGER</p>
+                <img src="/images/hamburger.jpg" alt="Hamburger" class="image" style="width:600px">
+                <div class="middle">
+                    <!-- <a target="_blank" href="../menu/menu.html"> -->
+                    <div class="text"><a asp-action="Index" asp-controller="Meni">SAZNAJ VIŠE...</a></div>
+                    <!-- </a> -->
+                </div>
+            </div>
+            <div class="container1">
+                <p>MADAGASCAR STEAK</p>
+                <img src="/images/madagascarr.png" alt="Madagascar" class="image" style="width:600px">
+                <div class="middle">
+                    <!-- <a target="_blank" href="../menu/menu.html"> -->
+                    <div class="text"><a asp-action="Index" asp-controller="Meni">SAZNAJ VIŠE...</a></div>
+                    <!-- </a> -->
+                </div>
+            </div>
+            <div class="container1">
+                <p>WIENER SCHNITZEL</p>
+                <img src="/images/wiener.jpg" alt="Wiener" class="image" style="width:600px">
+                <div class="middle">
+                    <!-- <a target="_blank" href="../menu/menu.html"> -->
+                    <div class="text"><a asp-action="Index" asp-controller="Meni">SAZNAJ VIŠE...</a></div>
+                    <!-- </a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

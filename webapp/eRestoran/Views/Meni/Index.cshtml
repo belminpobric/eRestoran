@@ -1,0 +1,78 @@
+﻿@model MeniVM
+@{
+    ViewData["Title"] = "Meni";
+}
+<style>
+    .pdfbutton {
+        color: #fff;
+        font-family: "Verdana";
+        font-size: 13px;
+        letter-spacing: -0.5px;
+        text-transform: uppercase;
+        margin: 10px;
+        line-height: 1.9em;
+        padding: 10px 5px 5px 10px;
+        font-weight: bold;
+        background: #EA6500;
+        width: 150px;
+        border-radius: 5px;
+        margin-left: 20px;
+    }
+    .pdfbutton a {
+        color:white;
+        text-decoration:none;
+    }
+</style>
+<div style="background-color:#f4f4f4;">
+    <center><h4 style="margin:0; padding:50px 0 70px 0; width:100%;">MENI</h4></center>
+</div>
+<div id="MeniContainer">
+    <div class="sidebar">
+        <ul>
+            <h4 style="margin-top:0;"><span>Pronađite jelo</span></h4>
+            <form asp-action="Index" asp-controller="Meni" asp-route-naziv="@Model.naziv" class="search-field" method="get">
+                <input type="text" asp-for="@Model.naziv" value="" placeholder="Unesi ime jela..." required> <br>
+                <button type="submit" value="Traži">Trazi</button>
+            </form>
+            <li>
+                <h4><span>Kategorije</span></h4>
+                <ul class="blocklist">
+                    <li><a asp-action="Index" asp-controller="Meni" asp-route-naziv="Tjestenina">Tjestenina</a></li>
+                    <li><a asp-action="Index" asp-controller="Meni" asp-route-naziv="Sendvici">Sendviči</a></li>
+                    <li><a asp-action="Index" asp-controller="Meni" asp-route-naziv="Beefsteak">Beefsteak</a></li>
+                    <li><a asp-action="Index" asp-controller="Meni" asp-route-naziv="Schnitzel">Schnitzel</a></li>
+                    <li><a asp-action="Index" asp-controller="Meni" asp-route-naziv="Deserti">Deserti</a></li>
+
+                </ul>
+            </li>
+
+            <li>
+                <h4><span>Najpoznatija jela</span></h4>
+                <ul>
+                    <li><a href=""><strong>Hamburger</strong></a> - fantastičan i ukusan!</li>
+                    <li><a href=""><strong>Madagascar</strong></a> - naš najkvalitetniji biftek </li>
+                    <li><a href=""><strong>Wiener schnitzel</strong></a> -veoma slasno!</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="pdfbutton" >
+            <a asp-action="MeniPDF" asp-controller="PDF" >Preuzmi Meni</a>
+        </div>
+    </div>
+    <div class="MeniStavke">
+
+        @foreach (var item in Model.Rows)
+        {
+            <div class="responsive">
+                <div class="img">
+                    <img src="@item.LinkZaSliku" alt="Tacos" style="width:250px; height:170px;">
+                    <div class="desc">
+                        <p style="font-size:1rem;">@item.Naziv - @item.Cijena KM </p>
+                        <a asp-action="Dodaj" asp-controller="Narudzbe" asp-route-id="@item.ID"><input type="button" value="Naruči" /></a>
+                        <a asp-action="Detalji" asp-controller="Meni" asp-route-id="@item.ID"><input type="button" value="Više" /></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

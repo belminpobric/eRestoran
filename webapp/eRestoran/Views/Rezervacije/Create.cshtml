@@ -1,0 +1,42 @@
+﻿@model eRestoran.Models.RezervacijaStolova
+
+@{
+    ViewData["Title"] = "Rezervacija";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="/css/login.css" rel="stylesheet" />
+
+<div clas="row" style="margin:auto; margin-top:4em;">
+    <div style="background-color: #fff; opacity:0.9; margin:auto; width:500px;">
+        <h5 style="color:white; padding-top:30px; text-align:center; background-color:#1f1e1d; opacity:0.9; height:80px;"><b>Rezervišite stol</b></h5>
+        <form asp-action="Create" class="formCreate" style="padding:0 3em 1.5em 3em;">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VrijemeRezervacije">Datum i vrijeme rezervacije:</label>
+                <input asp-for="VrijemeRezervacije" class="login-form-input" id="datum" placeholder="Vrijeme rezervacije" />
+                <span asp-validation-for="VrijemeRezervacije" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="BrojOsoba" class="login-form-input" id="brOsoba" placeholder="Broj osoba" /><div></div>
+                <span asp-validation-for="BrojOsoba" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="BrojTelefona" class="login-form-input" id="konTelefon" placeholder="Kontakt telefon" /><div></div>
+                <span asp-validation-for="BrojTelefona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Rezerviši" id="createRezervacija" class="textLogin" style="margin-left:22%;"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

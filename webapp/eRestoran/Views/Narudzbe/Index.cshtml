@@ -1,0 +1,122 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@model IEnumerable<eRestoran.ViewModels.OnlineNarudzbaVM>
+@{
+    ViewData["Title"] = "Narudzbe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/login.css" rel="stylesheet" />
+<style>
+    .akcija {
+        color: #EA6500;
+    }
+
+        .akcija:hover {
+            color: #EA6500;
+        }
+
+    a:hover {
+        color: white;
+        text-decoration: none;
+    }
+    .pagination-container ul {
+        border-radius: 5px;
+        color: black;
+    }
+
+    .pagination li {
+        border: 1px solid lightgrey;
+        height: 40px;
+        width: 40px;
+        padding: 5px;
+        color: #fff;
+    }
+
+    .pagination .active {
+        background-color: #EA6500;
+    }
+</style>
+<div style="background-color:#f4f4f4; height:100%; padding: 3em;">
+    <center><h2>Vaše narudžbe</h2></center>
+    @if (Model is null)
+    {
+        <center style="padding-top:50px; padding-bottom:50px;"><h5>Trenutno nemate narudžba</h5></center>
+        <center><a asp-action="Index" asp-controller="Meni" class="textLogin" style="margin-top:2em;">Naruči</a></center>
+    }
+    else
+    {
+        <table class="table" style="margin-top:2em;">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        Narudzba ID
+                    </th>
+                    <th>
+                        Naziv Jela
+                    </th>
+                    <th>
+                        Ime
+                    </th>
+                    <th>
+                        Prezime
+                    </th>
+                    <th>
+                        Datum narudzbe
+                    </th>
+                    <th>
+                        Cijena
+                    </th>
+                    <th>
+                        Adresa
+                    </th>
+                    <th>
+                        Telefon
+                    </th>
+                    <th>Akcija</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NarudzbaID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NazivJela)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Prezime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DatumNarudzbe)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cijena)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Adresa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefon)
+                        </td>
+                        <td>
+
+                            <a asp-action="Delete" asp-route-id="@item.NarudzbaID" class="akcija">Obriši</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p>
+            <a asp-action="Index" asp-controller="Meni" class="textLogin" style="margin-top:2em;">Naruči</a>
+        </p>
+        <div class="pagination-lg" style="margin-left: 400px">
+
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", "Narudzbe", new { page }))
+        </div>
+    }
+</div>

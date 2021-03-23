@@ -1,0 +1,35 @@
+﻿@model DetaljiStavkeVM
+@{
+    ViewData["Title"] = "Detalji";
+}
+<style>
+    .detaljiContainer {
+        padding: 30px;
+        background-color: #f4f4f4;
+        height: 100%;
+        padding-top:100px;
+    }
+
+    .sectionDetalji {
+        display: flex;
+    }
+    .sectionDetalji > img {
+        flex-basis:40%;
+        padding-top:20px;
+    }
+    .sectionDetalji .Opis{
+        flex-basis:60%;
+        padding-left:30px;
+        padding-top:100px;
+    }
+</style>
+<div class="detaljiContainer" >
+    <h4 style="color:gray; letter-spacing:3px;">JELO</h4>
+    <div class="sectionDetalji">
+        <img src="@Model.LinkZaSliku" alt="Slika" style="width:400px;" />
+        <div class="Opis">
+            <p>@Model.Opis</p>
+            <div class="text" style="width:170px;"><a asp-action="Snimi" asp-controller="Narudzbe" asp-route-id="@Model.ID" style="cursor:pointer;">NARUČI</a></div>
+        </div>
+    </div>
+</div>

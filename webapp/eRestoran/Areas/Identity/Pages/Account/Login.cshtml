@@ -1,0 +1,80 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<link href="/css/login.css" rel="stylesheet" />
+<div class="row" style="margin:auto; margin-top:4em;">
+    <div style="background-color: #fff; opacity:0.9; margin:auto; width:500px;">
+        <h5 style="color:white; padding-top:30px; text-align:center; background-color:#1f1e1d; opacity:0.9; height:80px;"><b>Prijavite se na svoj račun</b></h5>
+        <section>
+            <form id="account" method="post" style="padding:0 3em 1.5em 3em;">
+                @*<div asp-validation-summary="All" class="text-danger"></div>*@
+                <div class="form-group">
+                    <input asp-for="Input.UserName" class="login-form-input" id="email" placeholder="Korisnicko ime" />
+                    <div></div>
+                    <span asp-validation-for="Input.UserName" class="basic-slide" id="email"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Input.Password" class="login-form-input" id="password" placeholder="Lozinka" />
+                    <div></div>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-left:22%;">
+                    <button type="submit" class="textLogin" >PRIJAVI SE</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a id="forgot-password" style="color:#EA6500;" asp-page="./ForgotPassword">Zaboravili ste lozinku?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" style="color:#EA6500;" asp-route-returnUrl="@Model.ReturnUrl">Nemate račun? Registrirajte se</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+    @*<div class="col-md-6 col-md-offset-2">
+        <section>
+            <h4>Use another service to log in.</h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                            for details on setting up this ASP.NET application to support logging in via external services.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>*@
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

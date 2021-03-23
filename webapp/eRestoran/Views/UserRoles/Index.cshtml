@@ -1,0 +1,37 @@
+﻿@model List<eRestoran.ViewModels.UserRolesViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="background-color:#f4f4f4; height:100%;">
+    <h1>User Roles</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Email</th>
+                <th>Adresa</th>
+                <th>Broj telefona</th>
+                <th>Roles</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.Adresa</td>
+                    <td>@user.BrojTelefona</td>
+                    <td>@string.Join(" , ", user.Roles.ToList())</td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="UserRoles" asp-action="Manage" asp-route-userId="@user.UserId">Manage</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

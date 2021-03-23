@@ -1,0 +1,127 @@
+﻿@model MeniPDFVM
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Meni</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>TJESTENINA</th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Naziv</th>
+                <th>Cijena</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TjesteninaRows)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Naziv</td>
+                    <td>@item.Cijena</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>SENDVICI</th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Naziv</th>
+                <th>Cijena</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.SendviciRows)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Naziv</td>
+                    <td>@item.Cijena</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>BEEFSTEAK</th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Naziv</th>
+                <th>Cijena</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BeefsteakRows)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Naziv</td>
+                    <td>@item.Cijena</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>SCHNITZEL</th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Naziv</th>
+                <th>Cijena</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.SchnitzelRows)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Naziv</td>
+                    <td>@item.Cijena</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>DESERTI</th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Naziv</th>
+                <th>Cijena</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.DesertsRows)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Naziv</td>
+                    <td>@item.Cijena</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

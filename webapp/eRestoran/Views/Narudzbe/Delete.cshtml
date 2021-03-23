@@ -1,0 +1,59 @@
+﻿@model eRestoran.Models.OnlineNarudzba
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    dd, dt{
+        padding-top:50px;
+    }
+    a {
+        color: #EA6500;
+    }
+        a:hover {
+            color: #EA6500;
+        }
+</style>
+<div style="background-color:#f4f4f4; height:100%; margin:auto;">
+    <br />
+    <br />
+    <h3>Da li ste sigurni da želite obrisati ovu narudžbu?</h3>
+    <div style="margin:auto;">
+        <br />
+        <hr />
+        <dl class="row" style="padding-left:20px;">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NazivJela)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NazivJela)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DatumNarudzbe)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DatumNarudzbe)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Adresa)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Adresa)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Cijena)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Cijena)
+            </dd>
+
+        </dl>
+
+        <form asp-action="Delete" style="padding-left:20px; padding-top:20px;">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Obriši" class="btn btn-danger" /> |
+            <a asp-action="Index">Nazad na listu</a>
+        </form>
+    </div>
+</div>
